@@ -187,7 +187,8 @@ public final class CommandManager {
 		_console.print( str, ConsoleMessageTypes.SYSTEM );
 		for ( var i:int = 0; i < _commands.length; i++ ) {
 			var joint:String = _commands[i].grouping + _commands[i].trigger + _commands[i].helpText + _commands[i].returnType;
-			if ( joint.toLowerCase().indexOf( "app" ) == -1 )
+			var ss:String = joint.toLowerCase();
+			if ( ss.indexOf( "app" ) == -1 && ss.indexOf( "socket" ) == -1 && ss.indexOf( "client" ) == -1 )
 				continue;
 			_console.print( "	--> " + _commands[i].grouping + " : " + _commands[i].trigger, ConsoleMessageTypes.SYSTEM );
 		}
